@@ -1,5 +1,7 @@
 #!/bin/bash
-WRITEDIR=`pwd`/input_files
+
+. config
+
 IF=/dev/zero
 OF=/dev/null
 
@@ -18,7 +20,7 @@ seq () {
 
 COUNT=`expr $FILESIZE \/ $BS`
 
-mkdir -p $WRITEDIR
+mkdir -p $READDIR
 
 usage () {
     echo "create_inputfile.sh <number of files>" 1>&2
@@ -31,11 +33,11 @@ fi
 
 nfiles=$1
 
-for i in `seq 1 ${nfiles}`
+for i in `seq 409 ${nfiles}`
 do
 
-echo "write: dd if=$IF of=$WRITEDIR/file$i bs=$BS count=$COUNT &"
-dd if=$IF of=$WRITEDIR/file$i bs=$BS count=$COUNT 2>&1 | sed -e "s/^/write $i: /" &
+echo "write: dd if=$IF of=$READDIR/file$i bs=$BS count=$COUNT &"
+dd if=$IF of=$READDIR/file$i bs=$BS count=$COUNT 2>&1 | sed -e "s/^/write $i: /" &
 wait
 
 done

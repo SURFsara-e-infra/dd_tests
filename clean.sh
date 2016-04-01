@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. config
+
 rm -f ioread* iowrite*
-rm -rf testdir*
-rm -rf input_files
+rm -rf $WRITEDIR/testdir*
+#rm -rf $READDIR

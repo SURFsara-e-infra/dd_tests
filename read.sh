@@ -1,5 +1,5 @@
 #!/bin/bash
-READDIR=`pwd`/input_files
+. config
 OF=/dev/null
 
 . config
@@ -24,7 +24,7 @@ c=`expr $b + 1`
 
 echo "read $i: dd if=$READDIR/file$c of=$OF bs=$BS"
 t0=`python -c "import time; print time.time()"`
-dd if=$READDIR/file$c of=$OF bs=$BS >/dev/null 2>&1
+dd if=$READDIR/file$c of=$OF bs=$BS
 t1=`python -c "import time; print time.time()"`
 seconds=`python -c "print $t1 - $t0"`
 rate=`python -c "print $size_MiB/$seconds"`
