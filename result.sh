@@ -7,7 +7,7 @@ export PATH=/usr/local/bin:$PATH
 tpr=0
 for file in ioread*
 do 
-seconds=`cat $file | grep 'copied' | awk '{print $7}'`
+seconds=`cat $file | grep 'bytes copied' | awk '{print $7}'`
 bytes=$FILESIZE
 
 i=0
@@ -25,8 +25,8 @@ done
 tpw=0
 for file in iowrite*
 do
-seconds=`cat $file | grep 'copied' | awk '{print $7}'`
-bytes=`cat $file | grep -m 1 'copied' | awk '{print $3}'`
+seconds=`cat $file | grep 'bytes copied' | awk '{print $7}'`
+bytes=`cat $file | grep -m 1 'bytes copied' | awk '{print $3}'`
 
 i=0
 ts=0
