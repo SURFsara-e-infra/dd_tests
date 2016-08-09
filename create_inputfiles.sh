@@ -33,7 +33,7 @@ fi
 
 nfiles=$1
 
-for i in `seq 409 ${nfiles}`
+for i in `seq 1 ${nfiles}`
 do
 
 echo "write: dd if=$IF of=$READDIR/file$i bs=$BS count=$COUNT &"
