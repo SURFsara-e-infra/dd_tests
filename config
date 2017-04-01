@@ -1,5 +1,5 @@
 FILESIZE=2147483648
 BS=131072
 MAX_FILES=1000
-WRITEDIR=/mnt/cdi/users/ron/work/writedir
-READDIR=/mnt/cdi/users/ron/work/inputfiles
+WRITEDIR=${PWD}/writedir
+READDIR=${PWD}/inputfiles
